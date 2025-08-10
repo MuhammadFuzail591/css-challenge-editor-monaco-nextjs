@@ -1,31 +1,29 @@
 import React from 'react'
 
-function Preview({ code }) {
-   const { html, css, js } = code
+function Preview({ code, studentIframeRef }) {
 
-   const iframeRef = React.useRef()
-   React.useEffect(() => {
-      const document = iframeRef.current?.contentDocument;
-      document.open();
-      document.write(`
+  const { html, css, js } = code
+
+  React.useEffect(() => {
+    const document = studentIframeRef.current?.contentDocument;
+    document.open();
+    document.write(`
       <html>
         <head>
-          <style>${css}</style>
+          <style>${css || ""}</style>
         </head>
-        <body>
-          ${html}
-          <script>${js}<\/script>
+        <body style = 'height:fit-content;'>
+          ${html || ""}
+          <script>${js || ""}<\/script>
         </body>
       </html>
     `);
-      document.close();
-   }, [html, css, js]);
+    document.close();
+  }, [html, css, js, studentIframeRef]);
 
-   return (
-      <div className='w-6/12'>
-         <iframe ref={iframeRef} />
-      </div>
-   )
+  return (
+    <iframe ref={studentIframeRef} className='w-4/12' />
+  )
 }
 
 export default Preview

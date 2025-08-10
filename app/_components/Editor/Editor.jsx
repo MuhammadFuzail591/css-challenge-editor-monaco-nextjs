@@ -35,21 +35,29 @@ function EditorWrapper({ setCode }) {
 
    function handleOnChange(value) {
 
-      setFiles((prev) => ({ ...prev, [fileName]: { ...prev[fileName], value: value } }))
+
+      const updatedFiles = {
+         ...files,
+         [fileName]: { ...files[fileName], value: value }
+      }
+
+
+      setFiles(updatedFiles)
 
       if (setCode) {
          setCode({
-            html: files["index.html"].value,
-            css: files["style.css"].value,
-            js: files["script.js"].value
+            html: updatedFiles["index.html"].value,
+            css: updatedFiles["style.css"].value,
+            js: updatedFiles["script.js"].value
          })
       }
+
    }
 
 
    return (
-      <div className="flex flex-col h-full bg-gray-900 border border-gray-700 overflow-hidden w-6/12 shadow-lg">
-         {/* Tab Bar */}
+      <div className="flex flex-col h-full bg-gray-900 border border-gray-700 overflow-hidden w-4/12 shadow-lg">
+
          <div className="flex items-center bg-gray-800 border-b border-gray-700">
             {Object.keys(files).map((name) => (
                <button
@@ -68,11 +76,10 @@ function EditorWrapper({ setCode }) {
             ))}
          </div>
 
-         {/* Monaco Editor */}
          <div className="flex-1">
             <Editor
                height="80vh"
-               theme="vs-dark"
+               theme="vs-light"
                path={file.name}
                language={file.language}
                value={file.value}
