@@ -1,64 +1,42 @@
-"use client"
-import { Editor } from '@monaco-editor/react'
-import React from 'react'
+"use client";
+import { useTheme } from "@/app/context/ThemeContext";
+import { Editor } from "@monaco-editor/react";
+import React from "react";
 
+function EditorWrapper({ setCode, className }) {
+   const { theme } = useTheme();
 
+   const [files, setFiles] = React.useState({
+      "index.html": { name: "index.html", language: "html", value: "" },
+      "style.css": { name: "style.css", language: "css", value: "" },
+      "script.js": { name: "script.js", language: "javascript", value: "" },
+   });
 
-
-function EditorWrapper({ setCode }) {
-
-   const [files, setFiles] = React.useState(
-      {
-         'index.html': {
-            name: 'index.html',
-            language: 'html',
-            value: "",
-         },
-         'style.css': {
-            name: 'style.css',
-            language: 'css',
-            value: "",
-         },
-         'script.js': {
-            name: 'script.js',
-            language: 'javascript',
-            value: "",
-         },
-      }
-   )
-
-
-   const [fileName, setFileName] = React.useState('index.html');
+   const [fileName, setFileName] = React.useState("index.html");
    const file = files[fileName];
 
-
-
    function handleOnChange(value) {
-
-
       const updatedFiles = {
          ...files,
-         [fileName]: { ...files[fileName], value: value }
-      }
-
-
-      setFiles(updatedFiles)
+         [fileName]: { ...files[fileName], value: value },
+      };
+      setFiles(updatedFiles);
 
       if (setCode) {
          setCode({
             html: updatedFiles["index.html"].value,
             css: updatedFiles["style.css"].value,
-            js: updatedFiles["script.js"].value
-         })
+            js: updatedFiles["script.js"].value,
+         });
       }
-
    }
 
-
    return (
-      <div className="flex flex-col h-full bg-gray-900 border border-gray-700 overflow-hidden w-4/12 shadow-lg">
-
-         <div className="flex items-center bg-gray-800 border-b border-gray-700">
+      <div
+         className={`${className} flex flex-col overflow-hidden bg-card border border-border shadow-lg`}
+      >
+         {/* File Tabs */}
+         <div className="flex items-center border-b bg-bg border-border">
             {Object.keys(files).map((name) => (
                <button
                   key={name}
@@ -66,8 +44,8 @@ function EditorWrapper({ setCode }) {
                   disabled={fileName === name}
                   className={`px-4 py-2 text-sm font-medium transition-colors duration-200
               ${fileName === name
-                        ? "bg-gray-900 text-white border-b-2 border-blue-500"
-                        : "text-gray-400 hover:text-white hover:bg-gray-700"
+                        ? "bg-card text-text border-b-2 border-blue-500"
+                        : "text-text/70 hover:text-text hover:bg-card/80"
                      }
             `}
                >
@@ -76,10 +54,10 @@ function EditorWrapper({ setCode }) {
             ))}
          </div>
 
-         <div className="flex-1">
+         {/* Monaco Editor */}
+         <div className="flex-1 h-full">
             <Editor
-               height="80vh"
-               theme="vs-light"
+               theme={theme === "dark" ? "vs-dark" : "vs-light"}
                path={file.name}
                language={file.language}
                value={file.value}
@@ -93,7 +71,7 @@ function EditorWrapper({ setCode }) {
             />
          </div>
       </div>
-   )
+   );
 }
 
-export default EditorWrapper
+export default EditorWrapper;

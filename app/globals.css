@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,11 +12,31 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+.markdown > * {
+  all: revert;
+}
+
+:root {
+  --color-bg: #f9fafb; /* page background */
+  --color-card: #ffffff; /* card background */
+  --color-border: #e5e7eb; /* light border */
+  --color-text: #111827; /* dark text */
+  --color-heading-bg: #000000; /* heading background */
+  --color-heading-text: #ffffff; /* heading text */
+}
+
+.dark {
+  --color-bg: #1f2937; /* dark page background */
+  --color-card: #111827; /* dark card background */
+  --color-border: #374151; /* dark border */
+  --color-text: #f9fafb; /* light text */
+  --color-heading-bg: #374151; /* dark heading background */
+  --color-heading-text: #f9fafb; /* light heading text */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 

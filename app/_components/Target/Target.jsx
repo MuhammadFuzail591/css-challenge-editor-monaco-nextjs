@@ -1,12 +1,22 @@
 import React from 'react'
 
-function Target({ targetIframeRef }) {
+function Target({ targetIframeRef, className }) {
 
    const exercise = {
 
       html: `<div>
          <h1> Hi there</h1>
-      </div>`,
+      </div>
+      <div>
+         <h1> Hi there</h1>
+      </div>
+      <div>
+         <h1> Hi there</h1>
+      </div>
+      <div>
+         <h1> Hi there</h1>
+      </div>
+      `,
       css: `
          div{
             background: black;
@@ -27,7 +37,7 @@ function Target({ targetIframeRef }) {
         <head>
           <style>${exercise.css || ""}</style>
         </head>
-        <body style = 'height:fit-content;'>
+        <body>
           ${exercise.html || ""}
           <script>${exercise.js || ""}<\/script>
         </body>
@@ -39,7 +49,11 @@ function Target({ targetIframeRef }) {
    })
 
    return (
-      <iframe ref={targetIframeRef} className='w-4/12' />
+      <div className={`${className} flex flex-col justify-start gap-1`}>
+         <div className='flex items-center bg-gray-400 basis-1/12 text-start'>Target</div>
+         <iframe ref={targetIframeRef} className='w-full basis-11/12' />
+
+      </div>
    )
 }
 

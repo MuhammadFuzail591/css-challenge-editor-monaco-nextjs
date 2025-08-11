@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Preview({ code, studentIframeRef }) {
+function Preview({ code, studentIframeRef, className }) {
 
   const { html, css, js } = code
 
@@ -12,7 +12,7 @@ function Preview({ code, studentIframeRef }) {
         <head>
           <style>${css || ""}</style>
         </head>
-        <body style = 'height:fit-content;'>
+        <body>
           ${html || ""}
           <script>${js || ""}<\/script>
         </body>
@@ -22,7 +22,10 @@ function Preview({ code, studentIframeRef }) {
   }, [html, css, js, studentIframeRef]);
 
   return (
-    <iframe ref={studentIframeRef} className='w-4/12' />
+    <div className={`${className} flex flex-col justify-start gap-1`}>
+      <div className='flex items-center bg-gray-400 basis-1/12 text-start'>Preview</div>
+      <iframe ref={studentIframeRef} className='w-full basis-11/12' />
+    </div>
   )
 }
 
