@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 function Header({ problems, selectedProblem, onProblemChange }) {
    return (
       <header className="sticky top-0 z-10 flex items-center justify-between w-full p-4 border-b shadow-sm bg-card border-border text-text">
-         <h1 className="text-lg font-semibold">CSS Battle</h1>
+         <h1 className="text-lg font-semibold">Codebite Challenges</h1>
 
          <select
             value={selectedProblem}

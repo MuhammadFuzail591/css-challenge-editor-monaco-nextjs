@@ -7,15 +7,6 @@ function Target({ targetIframeRef, className }) {
       html: `<div>
          <h1> Hi there</h1>
       </div>
-      <div>
-         <h1> Hi there</h1>
-      </div>
-      <div>
-         <h1> Hi there</h1>
-      </div>
-      <div>
-         <h1> Hi there</h1>
-      </div>
       `,
       css: `
          div{
@@ -50,7 +41,7 @@ function Target({ targetIframeRef, className }) {
 
    return (
       <div className={`${className} flex flex-col justify-start gap-1`}>
-         <div className='flex items-center bg-gray-400 basis-1/12 text-start'>Target</div>
+         <h1 className='p-2 font-bold border-t rounded-t bg-headingBg text-headingText'>Target</h1>
          <iframe ref={targetIframeRef} className='w-full basis-11/12' />
 
       </div>

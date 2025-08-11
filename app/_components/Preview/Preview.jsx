@@ -23,7 +23,7 @@ function Preview({ code, studentIframeRef, className }) {
 
   return (
     <div className={`${className} flex flex-col justify-start gap-1`}>
-      <div className='flex items-center bg-gray-400 basis-1/12 text-start'>Preview</div>
+      <h1 className='p-2 font-bold border-t rounded-t bg-headingBg text-headingText'>Preview</h1>
       <iframe ref={studentIframeRef} className='w-full basis-11/12' />
     </div>
   )

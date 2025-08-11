@@ -5,6 +5,7 @@ import Target from "../Target";
 import Preview from "../Preview";
 import Header from "../Header";
 import Footer from "../Footer";
+import compareIframes from "./Challenge.helpers";
 
 function ChallengeHome({ mdxContent, frontMatter }) {
    const [code, setCode] = React.useState("");
@@ -52,7 +53,7 @@ function ChallengeHome({ mdxContent, frontMatter }) {
          </div>
 
          <Footer
-            onSubmit={() => console.log("Submit")}
+            onSubmit={() => compareIframes(studentIframeRef.current, targetIframeRef.current)}
             onReset={() => console.log("Reset")}
             onNext={() => console.log("Next")}
          />

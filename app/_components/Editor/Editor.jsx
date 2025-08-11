@@ -42,9 +42,9 @@ function EditorWrapper({ setCode, className }) {
                   key={name}
                   onClick={() => setFileName(name)}
                   disabled={fileName === name}
-                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200
+                  className={`px-4 py-2 text-sm transition-colors duration-200
               ${fileName === name
-                        ? "bg-card text-text border-b-2 border-blue-500"
+                        ? "bg-card font-bold text-text border-b-2 border-blue-500"
                         : "text-text/70 hover:text-text hover:bg-card/80"
                      }
             `}
@@ -63,7 +63,7 @@ function EditorWrapper({ setCode, className }) {
                value={file.value}
                onChange={handleOnChange}
                options={{
-                  fontSize: 14,
+                  fontSize: 16,
                   minimap: { enabled: false },
                   scrollBeyondLastLine: false,
                   automaticLayout: true,

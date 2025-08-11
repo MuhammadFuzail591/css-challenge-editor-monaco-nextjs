@@ -59,7 +59,11 @@ async function compareIframes (previewIframe, targetIframe) {
 
   if (matchPercent >= 100) isPass = true
 
-  console.log(isPass)
+  if (isPass) {
+    alert('Passed')
+  } else {
+    alert('Failed')
+  }
 
   return isPass
 }
