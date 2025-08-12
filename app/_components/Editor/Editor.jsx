@@ -33,10 +33,10 @@ function EditorWrapper({ setCode, className }) {
 
    return (
       <div
-         className={`${className} flex flex-col overflow-hidden bg-card border border-border shadow-lg`}
+         className={`${className} lg:flex flex-col bg-card shadow-lg`}
       >
          {/* File Tabs */}
-         <div className="flex items-center border-b bg-bg border-border">
+         <div className="flex items-center border-b bg-card border-border">
             {Object.keys(files).map((name) => (
                <button
                   key={name}
@@ -55,7 +55,7 @@ function EditorWrapper({ setCode, className }) {
          </div>
 
          {/* Monaco Editor */}
-         <div className="flex-1 h-full">
+         <div className="flex-1 h-[90%]">
             <Editor
                theme={theme === "dark" ? "vs-dark" : "vs-light"}
                path={file.name}

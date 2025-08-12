@@ -43,7 +43,6 @@ function Target({ targetIframeRef, className }) {
       <div className={`${className} flex flex-col justify-start gap-1`}>
          <h1 className='p-2 font-bold border-t rounded-t bg-headingBg text-headingText'>Target</h1>
          <iframe ref={targetIframeRef} className='w-full basis-11/12' />
-
       </div>
    )
 }

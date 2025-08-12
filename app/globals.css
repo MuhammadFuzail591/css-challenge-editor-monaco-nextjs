@@ -27,8 +27,8 @@
 }
 
 .dark {
-  --color-bg: #1f2937; /* dark page background */
-  --color-card: #111827; /* dark card background */
+  --color-bg: #070708; /* dark page background */
+  --color-card: #18181b; /* dark card background */
   --color-border: #374151; /* dark border */
   --color-text: #f9fafb; /* light text */
   --color-heading-bg: #374151; /* dark heading background */

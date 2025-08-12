@@ -7,7 +7,7 @@ function Header({ problems, selectedProblem, onProblemChange }) {
       <header className="sticky top-0 z-10 flex items-center justify-between w-full p-4 border-b shadow-sm bg-card border-border text-text">
          <h1 className="text-lg font-semibold">Codebite Challenges</h1>
 
-         <select
+         {/* <select
             value={selectedProblem}
             onChange={(e) => onProblemChange(e.target.value)}
             className="p-2 text-sm border rounded-md border-border bg-card text-text"
@@ -17,7 +17,7 @@ function Header({ problems, selectedProblem, onProblemChange }) {
                   {problem.title}
                </option>
             ))}
-         </select>
+         </select> */}
 
          <ThemeToggle />
       </header>

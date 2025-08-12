@@ -4,6 +4,7 @@ import React from "react";
 function Footer({ onSubmit, onReset, onNext }) {
    return (
       <footer className="flex items-center justify-end w-full gap-4 p-4 border-t shadow-sm bg-card border-border text-text">
+        
          <button
             onClick={onReset}
             className="px-4 py-2 text-sm rounded-md bg-bg hover:opacity-80"
