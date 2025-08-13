@@ -8,7 +8,7 @@ function Preview({ code, studentIframeRef, className }) {
     const document = studentIframeRef.current?.contentDocument;
     document.open();
     document.write(`
-      <html>
+      <html >
         <head>
           <style>${css || ""}</style>
         </head>
@@ -24,7 +24,7 @@ function Preview({ code, studentIframeRef, className }) {
   return (
     <div className={`${className} flex flex-col justify-start gap-1`}>
       <h1 className='p-2 font-bold border-t rounded-t bg-headingBg text-headingText'>Preview</h1>
-      <iframe ref={studentIframeRef} className='w-full basis-11/12' />
+      <iframe ref={studentIframeRef} className='w-full h-[90%] basis-11/12' />
     </div>
   )
 }

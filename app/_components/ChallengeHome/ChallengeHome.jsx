@@ -27,13 +27,14 @@ function ChallengeHome({ mdxContent, frontMatter }) {
             selectedProblem="example"
             onProblemChange={(id) => console.log("Change problem to", id)}
          />
+         <TabSwitch setActiveTab={setActiveTab} activeTab={activeTab} className={""} />
 
-         <div className="flex-1 overflow-auto">
+         <div className="overflow-auto lg:flex-1">
             <div className="w-full gap-6 p-4 mx-auto lg:grid lg:grid-cols-3 lg:grid-rows-2 lg:h-full lg:mx-0">
                <BlogComponent
                   content={mdxContent}
                   title={frontMatter.title}
-                  className={`${activeTab === "blog" ? "" : "hidden"} p-4 h-[80vh]  overflow-scroll shadow-sm hrounded-md bg-card lg:row-span-2 lg:col-span-1 lg:h-full`}
+                  className={`${activeTab === "blog" ? "" : "hidden"} p-4 h-[80vh]  overflow-scroll shadow-sm rounded-md bg-card lg:row-span-2 lg:col-span-1 lg:h-full`}
                />
 
                <EditorWrapper
@@ -54,7 +55,6 @@ function ChallengeHome({ mdxContent, frontMatter }) {
                />
             </div>
          </div>
-         <TabSwitch setActiveTab={setActiveTab} activeTab={activeTab} className={""} />
 
          <Footer
             onSubmit={() => compareIframes(studentIframeRef.current, targetIframeRef.current)}

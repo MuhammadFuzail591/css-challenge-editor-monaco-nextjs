@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer({ onSubmit, onReset, onNext }) {
    return (
-      <footer className="flex items-center justify-end w-full gap-4 p-4 border-t shadow-sm bg-card border-border text-text">
+      <footer className="flex items-center justify-end w-full gap-4 p-2 border-t shadow-sm bg-card border-border text-text">
         
          <button
             onClick={onReset}
